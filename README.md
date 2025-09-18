@@ -1,59 +1,61 @@
-URL Risk Scorer (Python)
-Lightweight heuristic classifier for scoring potentially malicious URLs.
+# URL Risk Scorer (Python)
+
+Lightweight heuristic classifier for scoring potentially malicious URLs.  
 Implements simple rules inspired by common phishing indicators (IP-based domains, suspicious TLDs, excessive query params, brand/login keywords, etc).
-Features
 
-Pure Python, no external dependencies
+## Features
 
-CLI entrypoint: python -m url_risk <url>
+- Pure Python, no external dependencies  
+- CLI entrypoint: `python -m url_risk <url>`  
+- Returns a risk score (0–100) and feature breakdown  
+- Tested with `pytest`  
+- Continuous Integration via GitHub Actions  
 
-Returns a risk score (0–100) and feature breakdown
-
-Tested with pytest
-
-Continuous Integration via GitHub Actions
-
-Installation
+## Installation
 
 Clone and install in a virtual environment:
 
+```bash
 git clone git@github.com:rad-cmd/url-risk.git
 cd url-risk
 python -m venv .venv && source .venv/bin/activate
 pip install -e .
+```
 
-Usage
+## Usage
+
+```bash
 python -m url_risk "https://example.com/login?session=x"
+```
 
+## Example output
 
-Example output:
+Score: 44 
 
-Score: 44
- ● Login/verify wording
- ● Many query params
- ○ IP address hostname
+ ● Login/verify wording 
+ 
+ ● Many query params 
+ 
+ ○ IP address hostname 
+ 
  ○ Suspicious TLD
 
-Tests
+ ## Tests
+
+```bash
 pytest -q
+```
+## CI
 
-CI
+This repo ships with a GitHub Actions workflow that:
 
-This repo ships with a GitHub Actions
- workflow:
+- Installs dependencies
 
-installs deps
+- Runs lint (ruff)
 
-runs lint (ruff)
+- Runs tests
+ 
 
-runs tests
+## Context
 
-Context
-
-This project is part of my Netcraft portfolio. It mirrors the simple live demo hosted on my portfolio site, but with a full Python CLI + test suite. The goal is to demonstrate:
-
-clear, well-structured imperative code
-
-use of automated testing
-
-reproducible builds & CI
+This project is relevant to my Netcraft application. 
